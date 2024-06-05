@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart'; 
+import 'package:flutter_dotenv/flutter_dotenv.dart'; // dotenv
 
 // dotenv の読み込み処理（非同期で処理する）
 Future<void> main() async {
