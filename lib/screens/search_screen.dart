@@ -37,6 +37,13 @@ class _SearchScreenState extends State<SearchScreen> {
                 fontSize: 18,
                 color: Colors.black,
               ),
+              onSubmitted: (String value) async {
+                print(value); // 入力された文字列をコンソールに出力
+                final results = await searchQiita(value); //変数に結果を格納
+              },
+              decoration: InputDecoration(
+                hintText: '検索キーワードを入力してください',
+              ),
             ),
           ),
           // 検索ボックス -end-
@@ -76,7 +83,5 @@ class _SearchScreenState extends State<SearchScreen> {
       print('APIレスポンスが正常にget出来ませんでした'); // デバックのため
       return [];
     }
-
-    // 4. 変換したArticleクラスの配列を返す(returnする)
   }
 }
