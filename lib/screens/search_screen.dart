@@ -12,6 +12,8 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  List<Article> articles = []; // 検索結果を格納する変数
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,13 +39,15 @@ class _SearchScreenState extends State<SearchScreen> {
                 fontSize: 18,
                 color: Colors.black,
               ),
-              onSubmitted: (String value) async {
-                print(value); // 入力された文字列をコンソールに出力
-                final results = await searchQiita(value); //変数に結果を格納
-              },
+              
               decoration: InputDecoration(
                 hintText: '検索キーワードを入力してください',
               ),
+              onSubmitted: (String value) async {
+                print(value); // 入力された文字列をコンソールに出力
+                final results = await searchQiita(value); // 一旦、resultsに変数代入（articlesにて検索結果を保持したいので）
+                setState(()=> articles = results); // 検索結果を代入
+              },
             ),
           ),
           // 検索ボックス -end-
