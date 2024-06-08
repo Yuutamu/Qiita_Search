@@ -1,4 +1,5 @@
 import 'package:qiita_api_search/models/user.dart';
+
 class Article {
   // コンストラクタ
   // MEMO: title,user,url,createdAtは必ず必要なのでrequired || likesCount,tagsは存在しない場合があるので、デフォルト値を設定
@@ -31,6 +32,6 @@ class Article {
       createdAt: DateTime.parse(json['created_at'] as String), //DateTime.perseを使って文字列をDateTime型に変換
       likesCount: json['likes_count'] as int, 
       tags: List<String>.from(json['tags'].map((tag) => tag['name'])), // List<String>.from()を使ってList<String>に変換 連想配列を'name'だけの配列に作り変えるイメージ
-      );
+    );
   }
 }

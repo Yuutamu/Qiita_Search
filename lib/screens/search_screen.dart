@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:convert'; // json変換
 import 'package:http/http.dart' as http; // http通信で利用 | httpという変数を通して、httpパッケージにアクセス
 import 'package:flutter_dotenv/flutter_dotenv.dart'; // dotenv
-import 'package:qiita_api_search/models/article.dart'; // Articleクラス
+import 'package:qiita_api_search/models/article.dart';
+import 'package:qiita_api_search/models/user.dart';
+import 'package:qiita_api_search/widgets/article_container.dart'; // Articleクラス
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -52,11 +54,46 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           // 検索ボックス -end-
 
-          // 記事表示, 検索結果一覧
-        ],
-      ),
-    );
-  }
+          // 草案① 検索結果一覧 -start-
+          // Expanded(
+          //   child: ListView.builder(
+          //     itemCount: articles.length, // ListView.builderが描画するアイテムの数を指定するためのプロパティ
+          //     itemBuilder: (context, index) {
+          //       final article = articles[index];
+          //       return ListTile(
+          //         title: Text(article.title),
+          //         subtitle: Text('By ${article.user}'),
+          //         onTap: () {
+          //         // タップ時の処理を書く
+                  
+          //         },
+          //       );
+          //     },
+          //   ),
+          // ),
+          // 草案① 検索結果一覧 -end-
+
+          // 草案2 検索結果一覧 -start-
+          ArticleContainer(
+            article: Article(
+              id: 'testID',
+              title: 'テストtitle',
+              user: User(
+                id: 'qii-tarooo',
+                profileImageUrl: 'https://firebasestorage.googleapis.com/v0/b/gs-expansion-test.appspot.com/o/unknown_person.png?alt=media',
+             ),
+             createdAt: DateTime.now(),
+             tags: ['Flutter', 'dart'],
+             url: 'https://example.com',
+           ),        
+         ),
+       ],
+     ),
+   );
+ }
+
+          // 草案2 検索結果一覧 -end-
+
 
   Future<List<Article>> searchQiita(String keyword) async {
     // API のエンドポイントを指定 ||| Uri.https([baseUrl], [Urlパス], Map<String,dynamic>[クエリパラメータ])
