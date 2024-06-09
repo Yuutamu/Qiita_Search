@@ -60,6 +60,7 @@ class ArticleContainer extends StatelessWidget {
                 fontStyle: FontStyle.italic, // イタリック
               ),
             ),
+            const SizedBox(height: 6),
             
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
