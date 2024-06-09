@@ -60,9 +60,12 @@ class ArticleContainer extends StatelessWidget {
                 fontStyle: FontStyle.italic, // イタリック
               ),
             ),
-            // ハートアイコン＆いいね
+            
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+                // ハートアイコン＆いいね
                 Column(
                   children: [
                     const Icon(
