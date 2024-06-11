@@ -7,3 +7,11 @@ https://qiita.com/api/v2/docs
 
 ## 技術
 - Flutter
+
+# 各画面
+## 検索画面
+
+## 検索結果一覧
+
+## 記事詳細ページ
+![Frame 484506](https://github.com/Yuutamu/Qiita_Search/assets/143495920/100d2d3a-1f77-4af0-97bb-f9fd232e2787)
